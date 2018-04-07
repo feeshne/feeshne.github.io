@@ -13,14 +13,14 @@
 </title>
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="-----">
 <meta property="og:url" content="http://yoursite.com/archives/2018/03/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="-----">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="-----">
 
 
-  <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="alternative" href="/atom.xml" title="-----" type="application/atom+xml">
 
 
 
@@ -47,25 +47,25 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="title" href="/">Hexo</a>
+  <a class="title" href="/">-----</a>
 </div>
 
   <div class="main-container">
     <div class="sidebar">
   <div class="header">
-    <h1 class="title"><a href="/">Hexo</a></h1>
+    <h1 class="title"><a href="/">-----</a></h1>
     
     <div class="info">
       <div class="content">
         
         
-          <div class="author">John Doe</div>
+          <div class="author">陈豌豆</div>
         
       </div>
       
         <div class="avatar">
           
-            <a href="/about"><img src="https://cn.gravatar.com/avatar/35fef74d731255cd569c2c2b0b9e87e4?s=200"></a>
+            <a href="/about"><img src="https://en.gravatar.com/userimage/137430920/a4edc80548c3a0421aafd701afc8977e.jpg?size=200"></a>
           
         </div>
       
@@ -79,21 +79,21 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">3</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
                 <a href="javascript:;">Tag</a>
-                
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/">ReactNative</a><span class="tag-list-count">4</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">1</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">5</span></li></ul>
               </li>
             
           
@@ -110,28 +110,6 @@
             
               <li>
                 <a href="/archives" title="By Year">By Year</a>
-              </li>
-            
-          
-        </ul>
-      
-        <ul class="nav">
-          
-            
-              <li>
-                <a href="https://github.com/denjones/hexo-theme-chan" title="Chan" target="_blank" rel="noopener">Chan</a>
-              </li>
-            
-          
-            
-              <li>
-                <a href="https://github.com/denjones" title="Github" target="_blank" rel="noopener">Github</a>
-              </li>
-            
-          
-            
-              <li>
-                <a href="/atom.xml" title="RSS">RSS</a>
               </li>
             
           
@@ -157,6 +135,90 @@
           <h1><a href="/archives/2018" class="archive-year">2018</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2018/03/30/读书笔记/ReactNative/通信机制/" >
+  ReactNative通信机制
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2018/03/30/读书笔记/ReactNative/通信机制/"><span class="article-date">
+  2018-03-30
+</span>
+</a>
+        
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactNative/">ReactNative</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <!--啊，你麻痹，没有保存文档，我昨天写了什么东西啊。2018.3.30-->
+<hr>
+<blockquote>
+<p>ReactNative应用中存在以下几种线程：</p>
+<ul>
+<li>main线程：即AndroidUI线程，即主线程，一个应用只有一条这样子的线程</li>
+<li>mqt_native_modules线程：JS调用JAVA</li>
+<li>mqt_js线程：解析JS的线程</li>
+<li>Render线程：在Android5.0以上的机器运行还有这样子的线程。</li>
+</ul>
+</blockquote>
+<h3 id="NativeModuleCallExceptionHandler"><a href="#NativeModuleCallExceptionHandler" class="headerlink" title="NativeModuleCallExceptionHandler"></a>NativeModuleCallExceptionHandler</h3><ul>
+<li><p>com.facebook.react.XReactInstanceManagerImpl#createReactContext</p>
+<p>这里会初始化ReactNative的相关的配置。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">NativeModuleCallExceptionHandler exceptionHandler = mNativeModuleCallExceptionHandler != <span class="keyword">null</span></span><br><span class="line">        ? mNativeModuleCallExceptionHandler</span><br><span class="line">        : mDevSupportManager;</span><br><span class="line">    CatalystInstanceImpl.Builder catalystInstanceBuilder = <span class="keyword">new</span> CatalystInstanceImpl.Builder()</span><br><span class="line">        .setReactQueueConfigurationSpec(ReactQueueConfigurationSpec.createDefault())</span><br><span class="line">        .setJSExecutor(jsExecutor)</span><br><span class="line">        .setRegistry(nativeModuleRegistry)</span><br><span class="line">        .setJSModuleRegistry(jsModulesBuilder.build())</span><br><span class="line">        .setJSBundleLoader(jsBundleLoader)</span><br><span class="line">        .setNativeModuleCallExceptionHandler(exceptionHandler);</span><br></pre></td></tr></table></figure>
+<p>这里有个对象NativeModuleCallExceptionHandler，可以看到肯定不为空的，作用是当线程抛出异常的时候可以捕获到，而默认的捕获是由DevSupportManager实现，而DevSupportManager有com.facebook.react.devsupport.DevSupportManagerFactory#create(android.content.Context, com.facebook.react.devsupport.ReactInstanceDevCommandsHandler, java.lang.String, boolean, com.facebook.react.devsupport.RedBoxHandler)构造而成。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DevSupportManager <span class="title">create</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    Context applicationContext,</span></span></span><br><span class="line"><span class="function"><span class="params">    ReactInstanceDevCommandsHandler reactInstanceCommandsHandler,</span></span></span><br><span class="line"><span class="function"><span class="params">    @Nullable String packagerPathForJSBundleName,</span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">boolean</span> enableOnCreate,</span></span></span><br><span class="line"><span class="function"><span class="params">    @Nullable RedBoxHandler redBoxHandler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!enableOnCreate) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> DisabledDevSupportManager();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DisabledDevSupportManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">   mDefaultNativeModuleCallExceptionHandler = <span class="keyword">new</span> DefaultNativeModuleCallExceptionHandler();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleException</span><span class="params">(Exception e)</span> </span>&#123;</span><br><span class="line">   <span class="keyword">if</span> (e <span class="keyword">instanceof</span> RuntimeException) &#123;</span><br><span class="line">     <span class="comment">// Because we are rethrowing the original exception, the original stacktrace will be</span></span><br><span class="line">     <span class="comment">// preserved.</span></span><br><span class="line">     <span class="keyword">throw</span> (RuntimeException) e;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">     <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e);</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>所以，即使ReactNative有捕获异常的CatchHandler，也不会自己处理掉，还是会抛出来的默认情况下。</p>
+<h3 id="线程的创建"><a href="#线程的创建" class="headerlink" title="线程的创建"></a>线程的创建</h3><ul>
+<li>com.facebook.react.XReactInstanceManagerImpl#createReactContext</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NativeModuleCallExceptionHandler exceptionHandler = mNativeModuleCallExceptionHandler != <span class="keyword">null</span></span><br><span class="line">        ? mNativeModuleCallExceptionHandler</span><br><span class="line">        : mDevSupportManager;</span><br><span class="line">    CatalystInstanceImpl.Builder catalystInstanceBuilder = <span class="keyword">new</span> CatalystInstanceImpl.Builder()</span><br><span class="line">        .setReactQueueConfigurationSpec(ReactQueueConfigurationSpec.createDefault())</span><br></pre></td></tr></table></figure>
+<p>上面说到创建完exceptionHandler后，就会执行builder逻辑</p>
+<ul>
+<li>CatalystInstanceImpl.Builder().setReactQueueConfigurationSpec(ReactQueueConfigurationSpec.createDefault())</li>
+</ul>
+<ul>
+<li>com.facebook.react.bridge.queue.ReactQueueConfigurationSpec#createDefault</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MessageQueueThreadSpec spec = Build.VERSION.SDK_INT &lt; 21 ?</span><br><span class="line">        MessageQueueThreadSpec.newBackgroundThreadSpec(&quot;native_modules&quot;, LEGACY_STACK_SIZE_BYTES) :</span><br><span class="line">        MessageQueueThreadSpec.newBackgroundThreadSpec(&quot;native_modules&quot;);</span><br><span class="line">    return builder()</span><br><span class="line">        .setJSQueueThreadSpec(MessageQueueThreadSpec.newBackgroundThreadSpec(&quot;js&quot;))</span><br><span class="line">        .setNativeModulesQueueThreadSpec(spec)</span><br><span class="line">        .build();</span><br></pre></td></tr></table></figure>
+<p>这里就会创建两个线程，分别是mqt_native_modules和mqt_js</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">      catalystInstance = catalystInstanceBuilder.build();</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> CatalystInstanceImpl <span class="title">build</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> CatalystInstanceImpl(</span><br><span class="line">          Assertions.assertNotNull(mReactQueueConfigurationSpec),</span><br><span class="line">          Assertions.assertNotNull(mJSExecutor),</span><br><span class="line">          Assertions.assertNotNull(mRegistry),</span><br><span class="line">          Assertions.assertNotNull(mJSModuleRegistry),</span><br><span class="line">          Assertions.assertNotNull(mJSBundleLoader),</span><br><span class="line">          Assertions.assertNotNull(mNativeModuleCallExceptionHandler));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="title">CatalystInstanceImpl</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">final</span> ReactQueueConfigurationSpec ReactQueueConfigurationSpec,</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">final</span> JavaScriptExecutor jsExecutor,</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">final</span> NativeModuleRegistry registry,</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">final</span> JavaScriptModuleRegistry jsModuleRegistry,</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">final</span> JSBundleLoader jsBundleLoader,</span></span></span><br><span class="line"><span class="function"><span class="params">      NativeModuleCallExceptionHandler nativeModuleCallExceptionHandler)</span> </span>&#123;</span><br><span class="line">    FLog.d(ReactConstants.TAG, <span class="string">"Initializing React Xplat Bridge."</span>);</span><br><span class="line">    mHybridData = initHybrid();</span><br><span class="line"></span><br><span class="line">    mReactQueueConfiguration = ReactQueueConfigurationImpl.create(</span><br><span class="line">        ReactQueueConfigurationSpec,</span><br><span class="line">        <span class="keyword">new</span> NativeExceptionHandler());</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ReactQueueConfigurationImpl <span class="title">create</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">      ReactQueueConfigurationSpec spec,</span></span></span><br><span class="line"><span class="function"><span class="params">      QueueThreadExceptionHandler exceptionHandler)</span> </span>&#123;</span><br><span class="line">    Map&lt;MessageQueueThreadSpec, MessageQueueThreadImpl&gt; specsToThreads = MapBuilder.newHashMap();</span><br><span class="line"></span><br><span class="line">    MessageQueueThreadSpec uiThreadSpec = MessageQueueThreadSpec.mainThreadSpec();</span><br><span class="line">    <span class="comment">//给UIHandler设置exceptionHandler</span></span><br><span class="line">    MessageQueueThreadImpl uiThread =</span><br><span class="line">      MessageQueueThreadImpl.create( uiThreadSpec, exceptionHandler);</span><br><span class="line">    specsToThreads.put(uiThreadSpec, uiThread);</span><br><span class="line"></span><br><span class="line">    MessageQueueThreadImpl jsThread = specsToThreads.get(spec.getJSQueueThreadSpec());</span><br><span class="line">    <span class="keyword">if</span> (jsThread == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">//给mqt_js线程设置exceptionHandler</span></span><br><span class="line">      jsThread = MessageQueueThreadImpl.create(spec.getJSQueueThreadSpec(), exceptionHandler);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    MessageQueueThreadImpl nativeModulesThread =</span><br><span class="line">        specsToThreads.get(spec.getNativeModulesQueueThreadSpec());</span><br><span class="line">    <span class="keyword">if</span> (nativeModulesThread == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="comment">//给mqt_native_modules线程设置exceptionHandler</span></span><br><span class="line">      nativeModulesThread =</span><br><span class="line">          MessageQueueThreadImpl.create(spec.getNativeModulesQueueThreadSpec(), exceptionHandler);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ReactQueueConfigurationImpl(uiThread, nativeModulesThread, jsThread);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>这里，就新建了三个相关的线程，其中UI线程也是拿Looper.getMainLooper的，所以和原生UI线程是一致的。</p>
+<h3 id="建立通信连接"><a href="#建立通信连接" class="headerlink" title="建立通信连接"></a>建立通信连接</h3><p>在com.facebook.react.cxxbridge.CatalystInstanceImpl#CatalystInstanceImpl中往下走，建立Bridge</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">initializeBridge(</span><br><span class="line">      <span class="keyword">new</span> BridgeCallback(<span class="keyword">this</span>),</span><br><span class="line">      jsExecutor,</span><br><span class="line">      mReactQueueConfiguration.getJSQueueThread(),</span><br><span class="line">      mReactQueueConfiguration.getNativeModulesQueueThread(),</span><br><span class="line">      mJavaRegistry.getModuleRegistryHolder(<span class="keyword">this</span>));</span><br><span class="line">    mMainExecutorToken = getMainExecutorToken();</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">initializeBridge</span><span class="params">(ReactCallback callback,</span></span></span><br><span class="line"><span class="function"><span class="params">                                       JavaScriptExecutor jsExecutor,</span></span></span><br><span class="line"><span class="function"><span class="params">                                       MessageQueueThread jsQueue,</span></span></span><br><span class="line"><span class="function"><span class="params">                                       MessageQueueThread moduleQueue,</span></span></span><br><span class="line"><span class="function"><span class="params">                                       ModuleRegistryHolder registryHolder)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>jni调用，其中c++代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> Instance::initializeBridge(</span><br><span class="line">    std::unique_ptr&lt;InstanceCallback&gt; callback,</span><br><span class="line">    std::shared_ptr&lt;JSExecutorFactory&gt; jsef,</span><br><span class="line">    std::shared_ptr&lt;MessageQueueThread&gt; jsQueue,</span><br><span class="line">    std::unique_ptr&lt;MessageQueueThread&gt; nativeQueue,</span><br><span class="line">    std::shared_ptr&lt;ModuleRegistry&gt; moduleRegistry) &#123;</span><br><span class="line">  callback_ = std::move(callback);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!nativeQueue) &#123;</span><br><span class="line">    <span class="comment">// TODO pass down a thread/queue from java, instead of creating our own.</span></span><br><span class="line"></span><br><span class="line">    auto queue = folly::make_unique&lt;CxxMessageQueue&gt;();</span><br><span class="line">    std::<span class="function">thread <span class="title">t</span><span class="params">(queue-&gt;getUnregisteredRunLoop()</span>)</span>;</span><br><span class="line">    t.detach();</span><br><span class="line">    nativeQueue = std::move(queue);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//对应着Java层的MessageQueueThreadImpl jsQueueThread</span></span><br><span class="line">  jsQueue-&gt;runOnQueueSync(</span><br><span class="line">    [<span class="keyword">this</span>, &amp;jsef, moduleRegistry, jsQueue,</span><br><span class="line">     nativeQueue=folly::makeMoveWrapper(std::move(nativeQueue))] () mutable &#123;</span><br><span class="line">      nativeToJsBridge_ = folly::make_unique&lt;NativeToJsBridge&gt;(</span><br><span class="line">          jsef.get(), moduleRegistry, jsQueue, nativeQueue.move(), callback_);</span><br><span class="line"></span><br><span class="line">      std::lock_guard&lt;std::mutex&gt; lock(m_syncMutex);</span><br><span class="line">      m_syncReady = <span class="keyword">true</span>;</span><br><span class="line">      m_syncCV.notify_all();</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">  CHECK(nativeToJsBridge_);</span><br><span class="line">&#125;</span><br><span class="line">···</span><br></pre></td></tr></table></figure>
+<p>f</p>
+<p>阅读链接：<a href="https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/5ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B.md" target="_blank" rel="noopener">https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/5ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B.md</a></p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
@@ -204,7 +266,7 @@
 
           <div class="main-footer">
   
-    © 2018 Hexo - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+    © 2018 ----- - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
   
 </div>
 

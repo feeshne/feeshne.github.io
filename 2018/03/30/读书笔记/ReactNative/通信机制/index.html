@@ -8,16 +8,21 @@
 
 <title>
   
-    -----
+    ReactNative通信机制
   
 </title>
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="-----">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="ReactNative应用中存在以下几种线程：  main线程：即AndroidUI线程，即主线程，一个应用只有一条这样子的线程 mqt_native_modules线程：JS调用JAVA mqt_js线程：解析JS的线程 Render线程：在Android5.0以上的机器运行还有这样子的线程。   NativeModuleCallExceptionHandler com.facebook.">
+<meta name="keywords" content="ReactNative">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ReactNative通信机制">
+<meta property="og:url" content="http://yoursite.com/2018/03/30/读书笔记/ReactNative/通信机制/index.html">
 <meta property="og:site_name" content="-----">
+<meta property="og:description" content="ReactNative应用中存在以下几种线程：  main线程：即AndroidUI线程，即主线程，一个应用只有一条这样子的线程 mqt_native_modules线程：JS调用JAVA mqt_js线程：解析JS的线程 Render线程：在Android5.0以上的机器运行还有这样子的线程。   NativeModuleCallExceptionHandler com.facebook.">
+<meta property="og:updated_time" content="2018-04-07T07:52:22.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="-----">
+<meta name="twitter:title" content="ReactNative通信机制">
+<meta name="twitter:description" content="ReactNative应用中存在以下几种线程：  main线程：即AndroidUI线程，即主线程，一个应用只有一条这样子的线程 mqt_native_modules线程：JS调用JAVA mqt_js线程：解析JS的线程 Render线程：在Android5.0以上的机器运行还有这样子的线程。   NativeModuleCallExceptionHandler com.facebook.">
 
 
   <link rel="alternative" href="/atom.xml" title="-----" type="application/atom+xml">
@@ -123,232 +128,30 @@
       
         <div style="max-width: 1000px">
       
-          
-
+          <article id="post-读书笔记/ReactNative/通信机制" class="article article-type-post">
+  
+    <h1 class="article-header">
+      ReactNative通信机制
+    </h1>
   
   
-    <div class="post-list">
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/04/07/读书笔记/ReactNative/介绍/" >
-  ReactNative介绍
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/04/07/读书笔记/ReactNative/介绍/"><span class="article-date">
-  2018-04-07
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactNative/">ReactNative</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>React使用JSX来代替常规的Javascript。</p>
-<p>JSX是一个看起来很像XML的JavaScript语法扩展。</p>
-<p>我们不需要一定使用 JSX，但它有以下优点：</p>
-<ul>
-<li>JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化。</li>
-<li>它是类型安全的，在编译过程中就能发现错误。</li>
-<li>使用 JSX 编写模板更加简单快速。</li>
-</ul>
-<p>所以渲染的时候直接重写render方法就好了，类似代码如下：</p>
-<p><img src="https://ws1.sinaimg.cn/large/6a1aa9cfgy1fptoaphsnjj20t20i9n0e.jpg" alt=""></p>
-<hr>
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>一般来说，以render方法为界限，分渲染前和渲染后。</p>
-<p><img src="https://ws1.sinaimg.cn/large/6a1aa9cfgy1fptoojk0eej20kk0p0dhq.jpg" alt=""></p>
-<ul>
-<li><strong>componentWillMount</strong> 在渲染前调用,在客户端也在服务端。</li>
-<li><strong>render</strong>(不算是生命周期，对比用)</li>
-<li><strong>componentDidMount</strong> 在第一次渲染后调用，只在客户端。之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异部操作阻塞UI)。</li>
-<li><strong>componentWillReceiveProps</strong> 组件接收到一个新的 prop (更新后)时被调用。这个方法在初始化render时不会被调用。</li>
-<li><strong>shouldComponentUpdate</strong> 返回一个布尔值。在组件接收到新的props或者state时被调用。在初始化时或者使用forceUpdate时不被调用。 </li>
-<li><strong>componentWillUpdate</strong> 在组件接收到新的props或者state但还没有render时被调用。在初始化时不会被调用。</li>
-<li><strong>componentDidUpdate</strong> 在组件完成更新后立即调用。在初始化时不会被调用。</li>
-<li><strong>componentWillUnmount</strong> 在组件从 DOM 中移除的时候立刻被调用。</li>
-</ul>
-<hr>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/04/03/读书笔记/ReactNative/Promise/" >
-  Promise
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/04/03/读书笔记/ReactNative/Promise/"><span class="article-date">
-  2018-04-03
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactNative/">ReactNative</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <blockquote>
-<p>阅读链接：<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises</a></p>
-<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise</a></p>
-</blockquote>
-<blockquote>
-<p>Promises solve a fundamental flaw with the callback pyramid of doom, by catching all errors, even thrown exceptions and programming errors. This is essential for functional composition of asynchronous operations.</p>
-</blockquote>
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>可以从文章开头引用看到，Promise解决的最大的问题是回调地狱，不用再看到那种callback再套callback的代码。而且用的是链式模式，看起来逻辑比较清晰。然后都是异步调用，不会阻塞线程。每一个操作都是返回<strong>Promise</strong>对象，例如new Pomise，then()等等相关的方法。</p>
-<p><strong>Promise</strong>对象也是一个代理，当代码写好时不需要知道值一开始是什么，中间是什么，结束是什么，传值就行了。</p>
-<blockquote>
-<p>A pending promise can either be <em>fulfilled</em> with a value, or <em>rejected</em> with a reason (error). When either of these options happens, the associated handlers queued up by a promise’s <code>then</code> method are called. (If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached.)</p>
-</blockquote>
-<p>一个Promise对象是下列其中一个状态：</p>
-<ul>
-<li>pedning：初始状态，不是fulfilled或者rejected</li>
-<li>fulfilled：操作已经全部完成</li>
-<li>rejected：操作被拒绝</li>
-</ul>
-<p>关系图如下：</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fpzjdzj28tj30m9089q3i.jpg" alt="mage-20180403161427"></p>
-<h2 id="其他基本方法"><a href="#其他基本方法" class="headerlink" title="其他基本方法"></a>其他基本方法</h2><h3 id="Promise-all-iterable"><a href="#Promise-all-iterable" class="headerlink" title="Promise.all(iterable)"></a>Promise.all(iterable)</h3><p>返回一个<strong>Promise</strong>对象，基于所有<strong>Promise</strong>都已经处理完并成功了的情况下，如果有任意一个<strong>Promise</strong>处理失败，就不会继续处理下去，就会去到<strong>catch</strong>方法快如果有的情况下，且这个时候的值是第一个处理失败返回的的值。比如在文档处运行这个代码，第三个<strong>Promise</strong>处理失败了，就会如此返回：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fpzjoligvwj31fk0o8gpk.jpg" alt="mage-20180403162439"></p>
-<h3 id="Promise-race-iterable"><a href="#Promise-race-iterable" class="headerlink" title="Promise.race(iterable)"></a>Promise.race(iterable)</h3><p>返回一个Promise对象，谁最快处理完并且是成功处理就返回这个值，加入第一个处理完但是是失败的，会导致之后的Promise都不会处理且会抛出异常且值是第一个完成失败的那个Promise返回的值（reject），如图所示：</p>
-<p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fpzjvbnkcuj316u0ougpr.jpg" alt="mage-20180403163107"></p>
-<h3 id="Promise-reject-reason"><a href="#Promise-reject-reason" class="headerlink" title="Promise.reject(reason)"></a>Promise.reject(reason)</h3><p>是一个shortcut，直接走reject阶段</p>
-<h3 id="Promise-resolved-value"><a href="#Promise-resolved-value" class="headerlink" title="Promise.resolved(value)"></a>Promise.resolved(value)</h3><p>和上面类似，也是一个shortcut，直接走resolved阶段</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/04/03/读书笔记/ReactNative/async:await/" >
-  async/await
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/04/03/读书笔记/ReactNative/async:await/"><span class="article-date">
-  2018-04-03
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactNative/">ReactNative</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <blockquote>
-<p> 阅读链接：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/async_function</a></p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">getData</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> data = <span class="keyword">await</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve</span>) =&gt;</span> &#123;</span><br><span class="line">        resolve(&#123;<span class="attr">id</span>: <span class="number">1</span>&#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">    callback(data)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="asyn-function"><a href="#asyn-function" class="headerlink" title="asyn function"></a>asyn function</h2><p>按照上面那段这样子声明会返回一个AsyncFunction对象的异步函数。</p>
-<h2 id="await"><a href="#await" class="headerlink" title="await"></a>await</h2><blockquote>
-<p>The await operator is used to wait for a <strong>Promise</strong>. It can only be used inside an <strong>async function</strong>.</p>
-</blockquote>
-<p>usage:</p>
-<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fpzi56gtktj31b40gm406.jpg" alt="mage-20180403153117"></p>
-<h2 id="AsyncFunction"><a href="#AsyncFunction" class="headerlink" title="AsyncFunction"></a>AsyncFunction</h2><blockquote>
-<p>The <strong>AsyncFunction</strong> constructor creates a new <strong>async function</strong> object. In JavaScript every asynchronous function is actually an <strong>AsyncFunction</strong> object.</p>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过<strong>async function</strong>或者自己构造，最终获取一个<strong>AsyncFunction </strong>对象，是一个运行异步函数的对象。其中可以使用<strong>await</strong>关键字来等待一个<strong>Promise</strong>对象的返回。因为是异步执行，所以需要用回调机制，不然你获取到的只是一个<strong>AsyncFunction</strong>对象。</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/03/30/读书笔记/ReactNative/通信机制/" >
-  ReactNative通信机制
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2018/03/30/读书笔记/ReactNative/通信机制/"><span class="article-date">
+  <div class="article-info">
+    <span class="article-date">
   2018-03-30
 </span>
-</a>
-        
 
-        
+    
+
+    
 	<span class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactNative/">ReactNative</a></li></ul>
 	</span>
 
 
-      </div>
-      <div class="article-entry">
-        
-          <!--啊，你麻痹，没有保存文档，我昨天写了什么东西啊。2018.3.30-->
+  </div>
+  <div class="article-entry">
+    <!--啊，你麻痹，没有保存文档，我昨天写了什么东西啊。2018.3.30-->
 <hr>
 <blockquote>
 <p>ReactNative应用中存在以下几种线程：</p>
@@ -396,57 +199,29 @@
 <p>f</p>
 <p>阅读链接：<a href="https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/5ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B.md" target="_blank" rel="noopener">https://github.com/guoxiaoxing/react-native/blob/master/doc/ReactNative%E6%BA%90%E7%A0%81%E7%AF%87/5ReactNative%E6%BA%90%E7%A0%81%E7%AF%87%EF%BC%9A%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B.md</a></p>
 
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2018/03/25/hello-world/" >
-  Hello World
-</a>
-
-      </h3>
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
       
-
-      <div class="article-info">
-        <a href="/2018/03/25/hello-world/"><span class="article-date">
-  2018-03-25
-</span>
-</a>
+          <img src="/images/cc/by.png">
         
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
 
-        
 
-      </div>
-      <div class="article-entry">
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    
 
-        
-      </div>
-    </div>
+  </footer>
+</article>
 
-  
-    </div>
-  
 
 
 
