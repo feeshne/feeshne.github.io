@@ -8,24 +8,21 @@
 
 <title>
   
-    ReactNative介绍
+    Longest Increasing Subsequence
   
 </title>
 
-<meta name="description" content="React使用JSX来代替常规的Javascript。 JSX是一个看起来很像XML的JavaScript语法扩展。 我们不需要一定使用 JSX，但它有以下优点：  JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化。 它是类型安全的，在编译过程中就能发现错误。 使用 JSX 编写模板更加简单快速。  所以渲染的时候直接重写render方法就好了，类似代码如下：   生命周期">
-<meta name="keywords" content="ReactNative">
+<meta name="description" content="网址链接：https://www.geeksforgeeks.org/longest-increasing-subsequence/ 通过对动态规划的理解，那么动态规划比较简单的做法是从底儿上的解法（配合备忘录) 所以针对最长递增子序列，可以首先确认的是，可以确认数学公式。 因为只有有数组，即使每个值都不一样，那么最短的长度也是1。 所以数学公式： 怎么理解，就是，基于每个下标i为数组的长度，都有">
+<meta name="keywords" content="Dynamic Programming">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ReactNative介绍">
-<meta property="og:url" content="http://yoursite.com/2018/04/07/读书笔记/ReactNative/介绍/index.html">
+<meta property="og:title" content="Longest Increasing Subsequence">
+<meta property="og:url" content="http://yoursite.com/2018/04/15/Longest-Increasing-Subsequence/index.html">
 <meta property="og:site_name" content="-----">
-<meta property="og:description" content="React使用JSX来代替常规的Javascript。 JSX是一个看起来很像XML的JavaScript语法扩展。 我们不需要一定使用 JSX，但它有以下优点：  JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化。 它是类型安全的，在编译过程中就能发现错误。 使用 JSX 编写模板更加简单快速。  所以渲染的时候直接重写render方法就好了，类似代码如下：   生命周期">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/6a1aa9cfgy1fptoaphsnjj20t20i9n0e.jpg">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/6a1aa9cfgy1fptoojk0eej20kk0p0dhq.jpg">
-<meta property="og:updated_time" content="2018-04-07T07:46:31.654Z">
+<meta property="og:description" content="网址链接：https://www.geeksforgeeks.org/longest-increasing-subsequence/ 通过对动态规划的理解，那么动态规划比较简单的做法是从底儿上的解法（配合备忘录) 所以针对最长递增子序列，可以首先确认的是，可以确认数学公式。 因为只有有数组，即使每个值都不一样，那么最短的长度也是1。 所以数学公式： 怎么理解，就是，基于每个下标i为数组的长度，都有">
+<meta property="og:updated_time" content="2018-04-15T11:58:45.821Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ReactNative介绍">
-<meta name="twitter:description" content="React使用JSX来代替常规的Javascript。 JSX是一个看起来很像XML的JavaScript语法扩展。 我们不需要一定使用 JSX，但它有以下优点：  JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化。 它是类型安全的，在编译过程中就能发现错误。 使用 JSX 编写模板更加简单快速。  所以渲染的时候直接重写render方法就好了，类似代码如下：   生命周期">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/6a1aa9cfgy1fptoaphsnjj20t20i9n0e.jpg">
+<meta name="twitter:title" content="Longest Increasing Subsequence">
+<meta name="twitter:description" content="网址链接：https://www.geeksforgeeks.org/longest-increasing-subsequence/ 通过对动态规划的理解，那么动态规划比较简单的做法是从底儿上的解法（配合备忘录) 所以针对最长递增子序列，可以首先确认的是，可以确认数学公式。 因为只有有数组，即使每个值都不一样，那么最短的长度也是1。 所以数学公式： 怎么理解，就是，基于每个下标i为数组的长度，都有">
 
 
   <link rel="alternative" href="/atom.xml" title="-----" type="application/atom+xml">
@@ -131,57 +128,76 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-读书笔记/ReactNative/介绍" class="article article-type-post">
+          <article id="post-Longest-Increasing-Subsequence" class="article article-type-post">
   
     <h1 class="article-header">
-      ReactNative介绍
+      Longest Increasing Subsequence
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2018-04-07
+  2018-04-15
 </span>
 
     
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/读书笔记/">读书笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
 	</span>
 
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactNative/">ReactNative</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dynamic-Programming/">Dynamic Programming</a></li></ul>
 	</span>
 
 
   </div>
   <div class="article-entry">
-    <p>React使用JSX来代替常规的Javascript。</p>
-<p>JSX是一个看起来很像XML的JavaScript语法扩展。</p>
-<p>我们不需要一定使用 JSX，但它有以下优点：</p>
-<ul>
-<li>JSX 执行更快，因为它在编译为 JavaScript 代码后进行了优化。</li>
-<li>它是类型安全的，在编译过程中就能发现错误。</li>
-<li>使用 JSX 编写模板更加简单快速。</li>
-</ul>
-<p>所以渲染的时候直接重写render方法就好了，类似代码如下：</p>
-<p><img src="https://ws1.sinaimg.cn/large/6a1aa9cfgy1fptoaphsnjj20t20i9n0e.jpg" alt=""></p>
-<hr>
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>一般来说，以render方法为界限，分渲染前和渲染后。</p>
-<p><img src="https://ws1.sinaimg.cn/large/6a1aa9cfgy1fptoojk0eej20kk0p0dhq.jpg" alt=""></p>
-<ul>
-<li><strong>componentWillMount</strong> 在渲染前调用,在客户端也在服务端。</li>
-<li><strong>render</strong>(不算是生命周期，对比用)</li>
-<li><strong>componentDidMount</strong> 在第一次渲染后调用，只在客户端。之后组件已经生成了对应的DOM结构，可以通过this.getDOMNode()来进行访问。 如果你想和其他JavaScript框架一起使用，可以在这个方法中调用setTimeout, setInterval或者发送AJAX请求等操作(防止异部操作阻塞UI)。</li>
-<li><strong>componentWillReceiveProps</strong> 组件接收到一个新的 prop (更新后)时被调用。这个方法在初始化render时不会被调用。</li>
-<li><strong>shouldComponentUpdate</strong> 返回一个布尔值。在组件接收到新的props或者state时被调用。在初始化时或者使用forceUpdate时不被调用。 </li>
-<li><strong>componentWillUpdate</strong> 在组件接收到新的props或者state但还没有render时被调用。在初始化时不会被调用。</li>
-<li><strong>componentDidUpdate</strong> 在组件完成更新后立即调用。在初始化时不会被调用。</li>
-<li><strong>componentWillUnmount</strong> 在组件从 DOM 中移除的时候立刻被调用。</li>
-</ul>
-<hr>
+    <p>网址链接：<a href="https://www.geeksforgeeks.org/longest-increasing-subsequence/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/longest-increasing-subsequence/</a></p>
+<p>通过对动态规划的理解，那么动态规划比较简单的做法是从底儿上的解法（配合备忘录)</p>
+<p>所以针对最长递增子序列，可以首先确认的是，可以确认数学公式。</p>
+<p>因为只有有数组，即使每个值都不一样，那么最短的长度也是1。</p>
+<p>所以数学公式：</p>
+<p>怎么理解，就是，基于每个下标i为数组的长度，都有递增的下标j在遍历这个数组，max()函数标记了以下标j为长度是下标i为长度的数组的最长的递增子序列的子数组（短一个），所以想要找到最长递增子序列，只要找到这个下标j，然后在这个长度上+1，就是以i为长度的最长的递增子序列了。</p>
+<p>所以算法是，先初始化LIS的长度为1，初始化备忘录，让其的长度等于要求数组，然后其值都是1（初始化长度）。然后通过自底而上的算法，算出LIS。</p>
+<pre><code>package DynamicProgramming;
+
+public class LongestIncreasingSubsequence {
+    public static void main(String[] args) {
+//        int[] a = {3, 10, 2, 1, 20};
+        int[] a = {50, 3, 10, 7, 40, 80};
+        System.out.println(new Solution().solve(a));
+    }
+
+    static class Solution {
+
+        public int solve(int[] a) {
+            int maxLength = 1;
+            int[] tmp = new int[a.length];
+            for (int i = 0; i &lt; a.length; i++) {
+                tmp[i] = 1;
+            }
+            for (int i = 1; i &lt; a.length; i++) {
+                for (int j = 0; j &lt; i; j++) {
+                    if (a[j] &lt; a[i] &amp;&amp; tmp[i] &lt; tmp[j] + 1) {
+                        tmp[i] = tmp[j] + 1;
+                    }
+                }
+            }
+//            for (int i = 0; i &lt; tmp.length; i++) {
+            for (int value :
+                    tmp) {
+                if (maxLength &lt; value) {
+                    maxLength = value;
+                }
+            }
+            return maxLength;
+        }
+    }
+}
+</code></pre><p>上面就是动态规划的解法了。</p>
 
   </div>
   <footer class="article-footer">

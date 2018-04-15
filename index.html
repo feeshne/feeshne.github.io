@@ -79,21 +79,21 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">3</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/读书笔记/">读书笔记</a><span class="category-list-count">3</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
                 <a href="javascript:;">Tag</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/">ReactNative</a><span class="tag-list-count">4</span></li></ul>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dynamic-Programming/">Dynamic Programming</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ReactNative/">ReactNative</a><span class="tag-list-count">4</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">5</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">6</span></li></ul>
               </li>
             
           
@@ -124,6 +124,92 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2018/04/15/Longest-Increasing-Subsequence/" >
+  Longest Increasing Subsequence
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2018/04/15/Longest-Increasing-Subsequence/"><span class="article-date">
+  2018-04-15
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dynamic-Programming/">Dynamic Programming</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>网址链接：<a href="https://www.geeksforgeeks.org/longest-increasing-subsequence/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/longest-increasing-subsequence/</a></p>
+<p>通过对动态规划的理解，那么动态规划比较简单的做法是从底儿上的解法（配合备忘录)</p>
+<p>所以针对最长递增子序列，可以首先确认的是，可以确认数学公式。</p>
+<p>因为只有有数组，即使每个值都不一样，那么最短的长度也是1。</p>
+<p>所以数学公式：</p>
+<p>怎么理解，就是，基于每个下标i为数组的长度，都有递增的下标j在遍历这个数组，max()函数标记了以下标j为长度是下标i为长度的数组的最长的递增子序列的子数组（短一个），所以想要找到最长递增子序列，只要找到这个下标j，然后在这个长度上+1，就是以i为长度的最长的递增子序列了。</p>
+<p>所以算法是，先初始化LIS的长度为1，初始化备忘录，让其的长度等于要求数组，然后其值都是1（初始化长度）。然后通过自底而上的算法，算出LIS。</p>
+<pre><code>package DynamicProgramming;
+
+public class LongestIncreasingSubsequence {
+    public static void main(String[] args) {
+//        int[] a = {3, 10, 2, 1, 20};
+        int[] a = {50, 3, 10, 7, 40, 80};
+        System.out.println(new Solution().solve(a));
+    }
+
+    static class Solution {
+
+        public int solve(int[] a) {
+            int maxLength = 1;
+            int[] tmp = new int[a.length];
+            for (int i = 0; i &lt; a.length; i++) {
+                tmp[i] = 1;
+            }
+            for (int i = 1; i &lt; a.length; i++) {
+                for (int j = 0; j &lt; i; j++) {
+                    if (a[j] &lt; a[i] &amp;&amp; tmp[i] &lt; tmp[j] + 1) {
+                        tmp[i] = tmp[j] + 1;
+                    }
+                }
+            }
+//            for (int i = 0; i &lt; tmp.length; i++) {
+            for (int value :
+                    tmp) {
+                if (maxLength &lt; value) {
+                    maxLength = value;
+                }
+            }
+            return maxLength;
+        }
+    }
+}
+</code></pre><p>上面就是动态规划的解法了。</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
